@@ -14,26 +14,52 @@
 window.addEventListener("load", function(){
    let form = document.querySelector("form");
 
-   fetch("https://handlers.education.launchcode.org/static/planets.json").then(function(response){
-      response.json().then(function(json){
-         console.log(json)
-         const container = document.getElementById("missionTarget");
-         let i = 5
-               container.innerHTML = `
-            <ol>
-               <li>Name: ${json[i].name}</li>
-               <li>Diameter: ${json[i].diameter}</li>
-               <li>Star: ${json[i].star}</li>
-               <li>Distance from Earth: ${json[i].distance}</li>
-               <li>Number of Moons: ${json[i].moons}</li>
-            </ol>
-            <img src="${json[i].image}"></img>
-            `;
-      });
-   });
+   // Moved to submit handler
+   // fetch("https://handlers.education.launchcode.org/static/planets.json").then(function(response){
+   //    response.json().then(function(json){
+   //       console.log(json)
+   //       const container = document.getElementById("missionTarget");
+
+   //          let i = document.getElementById("planetDestination").value
+   //          // i = i.value
+   //          console.log(`${i}`)
+   //                container.innerHTML = `
+   //             <ol>
+   //                <li>Name: ${json[i].name}</li>
+   //                <li>Diameter: ${json[i].diameter}</li>
+   //                <li>Star: ${json[i].star}</li>
+   //                <li>Distance from Earth: ${json[i].distance}</li>
+   //                <li>Number of Moons: ${json[i].moons}</li>
+   //             </ol>
+   //             <img src="${json[i].image}"></img>
+   //             `;
+   //       });
+   // });
 
    form.addEventListener("submit", function(event) {
       event.preventDefault();
+/////////////////////////
+      fetch("https://handlers.education.launchcode.org/static/planets.json").then(function(response){
+         response.json().then(function(json){
+            console.log(json)
+            const container = document.getElementById("missionTarget");
+            
+               let i = document.getElementById("planetDestination").value
+               // i = i.value
+               console.log(`${i}`)
+                     container.innerHTML = `
+                  <ol>
+                     <li>Name: ${json[i].name}</li>
+                     <li>Diameter: ${json[i].diameter}</li>
+                     <li>Star: ${json[i].star}</li>
+                     <li>Distance from Earth: ${json[i].distance}</li>
+                     <li>Number of Moons: ${json[i].moons}</li>
+                  </ol>
+                  <img src="${json[i].image}"></img>
+                  `;
+            });
+      });
+///////////////////////////////////////
       let pilotName = document.querySelector("input[name=pilotName]");
       let copilotName = document.querySelector("input[name=copilotName]");
       let fuelLevel = document.querySelector("input[name=fuelLevel]");

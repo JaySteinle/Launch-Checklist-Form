@@ -26,6 +26,20 @@
                 <div style="display:flex; flex-direction: row; justify-content: center; align-items: center; margin: 8 0;">
                     <label>Cargo Mass (kg) <input type="text" name="cargoMass"/></label>
                 </div>
+                <div style="display:flex; flex-direction: row; justify-content: center; align-items: center; margin: 28 0;">
+                    <label>Destination Planet:
+                        <!-- includes empty value "Select One" option -->
+                        <select name="planetDestination" id="planetDestination" >
+                            <option value="">* Choose Destination *</option>
+                            <option value="0">Tatooine</option>
+                            <option value="1">Pern</option>
+                            <option value="2">Saturn/Titan</option>
+                            <option value="3">Mars</option>
+                            <option value="4">K2-18B</option>
+                            <option value="5">Jupiter/Europa</option>
+                        </select>
+                    </label>
+                </div>
                 <button id="formSubmit">Submit</button>
             </form>
         </div>
