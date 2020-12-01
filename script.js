@@ -101,7 +101,7 @@ window.addEventListener("load", function(){
          };
          
       }else{
-         faultyItems.style.visibility = "hidden";
+         faultyItems.style.visibility = "visible";
          launchStatus.style.color = "green";
          launchStatus.innerHTML = (`Shuttle ready for launch.`);
       };
